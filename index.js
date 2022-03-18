@@ -156,6 +156,33 @@ document.querySelector("body").addEventListener("touchstart",function(){
 });
 
 
+document.querySelector("body").addEventListener("touchstart",function(event){
+  touchstart=event.touches[0];
+  document.querySelector("body").addEventListener("touchend",function(e){
+    touchend=e.changedTouches[0];
+    if(touchend.pageY<touchstart.pageY){
+      if(yVelocity==1){return}
+      yVelocity=-1;
+      xVelocity=0;
+    }
+    if(touchend.pageY>touchstart.pageY){
+      if(yVelocity==-1){return}
+      yVelocity=1;
+      xVelocity=0;
+    }
+    if(touchend.pageX>touchstart.pageX){
+      if(xVelocity==-1){return}
+      yVelocity=0;
+      xVelocity=1;
+    }
+    if(touchend.pageX<touchstart.pageX){
+      if(xVelocity==1){return}
+      yVelocity=0;
+      xVelocity=-1;
+    }
+  });
+});
+
 
 function cheakborder(){
   if(headx<0){
