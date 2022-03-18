@@ -163,22 +163,22 @@ document.querySelector("body").addEventListener("touchstart",function(event){
     movey=touchend.pageY-touchstart.pageY;
     movex=touchend.pageX-touchstart.pageX;
     console.log(movey);
-    if(movey<-50){
+    if(movey<-40){
       if(yVelocity==1){return}
       yVelocity=-1;
       xVelocity=0;
     }
-    if(movey>50){
+    if(movey>40){
       if(yVelocity==-1){return}
       yVelocity=1;
       xVelocity=0;
     }
-    if(movex>50){
+    if(movex>40){
       if(xVelocity==-1){return}
       yVelocity=0;
       xVelocity=1;
     }
-    if(movex<-50){
+    if(movex<-40){
       if(xVelocity==1){return}
       yVelocity=0;
       xVelocity=-1;
