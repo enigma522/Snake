@@ -160,22 +160,25 @@ document.querySelector("body").addEventListener("touchstart",function(event){
   touchstart=event.touches[0];
   document.querySelector("body").addEventListener("touchend",function(e){
     touchend=e.changedTouches[0];
-    if(touchend.pageY<touchstart.pageY){
+    movey=touchend.pageY-touchstart.pageY;
+    movex=touchend.pageX-touchstart.pageX;
+    console.log(movey);
+    if(movey<-50){
       if(yVelocity==1){return}
       yVelocity=-1;
       xVelocity=0;
     }
-    if(touchend.pageY>touchstart.pageY){
+    if(movey>50){
       if(yVelocity==-1){return}
       yVelocity=1;
       xVelocity=0;
     }
-    if(touchend.pageX>touchstart.pageX){
+    if(movex>50){
       if(xVelocity==-1){return}
       yVelocity=0;
       xVelocity=1;
     }
-    if(touchend.pageX<touchstart.pageX){
+    if(movex<-50){
       if(xVelocity==1){return}
       yVelocity=0;
       xVelocity=-1;
